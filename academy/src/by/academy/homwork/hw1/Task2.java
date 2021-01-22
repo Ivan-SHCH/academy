@@ -9,7 +9,6 @@ public class Task2 {
 		Scanner sc = new Scanner(System.in).useLocale(Locale.US);
 		System.out.print("Введите тип данных:");
 		String line = sc.next();
-
 		switch (line) {
 		case "integer":
 			System.out.print("Введиите целое число: ");
