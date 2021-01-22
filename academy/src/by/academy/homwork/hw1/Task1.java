@@ -6,7 +6,6 @@ public class Task1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
 		System.out.print("Введите сумму покупки: ");
 		int cost = sc.nextInt();
 		if (cost < 0) {
@@ -41,7 +40,5 @@ public class Task1 {
 			System.out.println("Сумма скидки 20% и она составляет: " 
 								+ ((1 - 0.2) * cost));
 		}
-
 	}
-
 }

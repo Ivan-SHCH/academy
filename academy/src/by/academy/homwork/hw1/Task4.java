@@ -6,7 +6,6 @@ public class Task4 {
 		int numb = 2;
 		int power = 1;
 		int result = 1;
-		
 		while (true) {
 			if (result > 1_000_000) {
 				System.out.println("Результат степень 2 превысил  1_000_000");
