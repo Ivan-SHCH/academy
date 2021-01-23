@@ -12,6 +12,7 @@ public class Task3 {
 		
 		if(numb <= 0 || numb > 10) {
 			System.out.println("Вы ввели число вне диапазона значения.");
+			sc.close();
 			return;
 		}
 
@@ -19,5 +20,6 @@ public class Task3 {
 			result = numb * i;
 			System.out.println(numb+ " x " + i + " = " + result  );
 		}
+		sc.close();
 	}
 }

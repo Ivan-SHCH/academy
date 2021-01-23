@@ -10,12 +10,14 @@ public class Task1 {
 		int cost = sc.nextInt();
 		if (cost < 0) {
 			System.out.println("Вы ввели отрицательное число");
+			sc.close();
 			return;
 		}
 		System.out.print("Введите возрост покупателя: ");
 		int age = sc.nextInt();
 		if (age < 0) {
 			System.out.println("Вы ввели отрицательное число");
+			sc.close();
 			return;
 		}
 
@@ -40,5 +42,6 @@ public class Task1 {
 			System.out.println("Сумма скидки 20% и она составляет: " 
 								+ ((1 - 0.2) * cost));
 		}
+		sc.close();
 	}
 }
