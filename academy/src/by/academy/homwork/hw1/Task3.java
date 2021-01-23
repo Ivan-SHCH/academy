@@ -19,5 +19,6 @@ public class Task3 {
 			result = numb * i;
 			System.out.println(numb+ " x " + i + " = " + result  );
 		}
+		sc.close();
 	}
 }
