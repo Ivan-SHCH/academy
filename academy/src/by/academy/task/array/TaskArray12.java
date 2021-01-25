@@ -37,5 +37,6 @@ public class TaskArray12 {
 			}
 		}
 		System.out.println(Arrays.toString(arr));
+		System.out.println(pos + " " + neg);
 	}
 }
