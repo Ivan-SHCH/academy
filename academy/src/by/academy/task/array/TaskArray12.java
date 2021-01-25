@@ -27,8 +27,13 @@ public class TaskArray12 {
 
 			if (arr[i] == 0 || pos > neg + 1 || neg > pos + 1) {
 				--i;
-				pos--;
-				neg--;
+				if (pos > neg + 1) {
+					pos--;
+				}
+
+				if (neg > pos + 1) {
+					neg--;
+				}
 			}
 		}
 		System.out.println(Arrays.toString(arr));
