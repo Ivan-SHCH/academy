@@ -36,47 +36,47 @@ public class InputOutput {
 		String str = input("Сделайте свой выбор");
 		while (!str.equals("7")) {
 			switch (str) {
-			case "1": {
+			case "1":
 				inputDeal();
 				System.out.println("Press any key to continue...");
 				System.in.read();
-				System.out.println(menu);
 				break;
-			}
-			case "2": {
+
+			case "2":
 				inputProduct();
-				System.out.println(menu);
 				break;
-			}
-			case "3": {
+
+			case "3":
 
 				delProduct();
 				System.out.println("Press any key to continue...");
 				System.in.read();
-				System.out.println(menu);
 				break;
-			}
-			case "4": {
+
+			case "4":
 				printProduc();
 				System.out.println("Press any key to continue...");
 				System.in.read();
-				System.out.println(menu);
 				break;
-			}
-			case "5": {
+
+			case "5":
 				output();
 				System.out.println("Press any key to continue...");
 				System.in.read();
-				System.out.println(menu);
 				break;
-			}
+
 			case "6":
 				validete();
 				System.out.println("Press any key to continue...");
 				System.in.read();
-				System.out.println(menu);
 				break;
+
+			default:
+				System.out.println("Вы вели не правильное значение!");
+				break;
+
 			}
+			System.out.println(menu);
 			str = sc.nextLine().trim();
 		}
 		sc.close();
@@ -215,7 +215,7 @@ public class InputOutput {
 		String str = input("Сделайте свой выбор");
 		while (!str.equals("4")) {
 			switch (str) {
-			case "1": {
+			case "1": 
 				String title = input("Название вина");
 				String price = input("Цена");
 				String quantity = input("Количество");
@@ -224,10 +224,9 @@ public class InputOutput {
 				System.out.println("\n--------------------------------------------");
 				System.out.println("Товар добавлен.");
 				System.out.println("\n--------------------------------------------");
-				System.out.println(prodMenu);
 				break;
-			}
-			case "2": {
+			
+			case "2": 
 				String ctitle = input("Название сыра");
 				String cprice = input("Цена");
 				String cage = input("Выдержка");
@@ -237,10 +236,9 @@ public class InputOutput {
 				System.out.println("--------------------------------------------");
 				System.out.println("Товар добавлен.");
 				System.out.println("--------------------------------------------");
-				System.out.println(prodMenu);
 				break;
-			}
-			case "3": {
+			
+			case "3": 
 				String mtitle = input("Вид мяса");
 				String mprice = input("Цена");
 				String mquantity = input("Количество");
@@ -248,10 +246,13 @@ public class InputOutput {
 				System.out.println("\n--------------------------------------------");
 				System.out.println("Товар добавлен.");
 				System.out.println("\n--------------------------------------------");
-				System.out.println(prodMenu);
+				break;
+			
+			default:
+				System.out.println("Вы вели не правильное значение!");
 				break;
 			}
-			}
+			System.out.println(prodMenu);
 			str = input("Сделайте свой выбор");
 		}
 	}
