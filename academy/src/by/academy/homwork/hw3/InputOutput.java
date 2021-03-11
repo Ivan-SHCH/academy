@@ -1,5 +1,8 @@
 package by.academy.homwork.hw3;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -8,6 +11,7 @@ import by.academy.homwork.hw3.validate.BelarusPhoneValidator;
 import by.academy.homwork.hw3.validate.EmailValidator;
 
 public class InputOutput {
+	public final String INPUT_FILE = "src//bild.txt";
 	private Deal deals;
 	private Product[] prod;
 	private final int minProdArray = 1;
@@ -215,7 +219,7 @@ public class InputOutput {
 		String str = input("Сделайте свой выбор");
 		while (!str.equals("4")) {
 			switch (str) {
-			case "1": 
+			case "1":
 				String title = input("Название вина");
 				String price = input("Цена");
 				String quantity = input("Количество");
@@ -225,8 +229,8 @@ public class InputOutput {
 				System.out.println("Товар добавлен.");
 				System.out.println("\n--------------------------------------------");
 				break;
-			
-			case "2": 
+
+			case "2":
 				String ctitle = input("Название сыра");
 				String cprice = input("Цена");
 				String cage = input("Выдержка");
@@ -237,8 +241,8 @@ public class InputOutput {
 				System.out.println("Товар добавлен.");
 				System.out.println("--------------------------------------------");
 				break;
-			
-			case "3": 
+
+			case "3":
 				String mtitle = input("Вид мяса");
 				String mprice = input("Цена");
 				String mquantity = input("Количество");
@@ -247,7 +251,7 @@ public class InputOutput {
 				System.out.println("Товар добавлен.");
 				System.out.println("\n--------------------------------------------");
 				break;
-			
+
 			default:
 				System.out.println("Вы вели не правильное значение!");
 				break;
@@ -338,6 +342,8 @@ public class InputOutput {
 
 	/**
 	 * Метод вывода на экран сделки.
+	 * 
+	 *
 	 */
 	public void output() {
 		if (deals == null) {
@@ -345,7 +351,7 @@ public class InputOutput {
 			return;
 		} else {
 			System.out.println("Дата заключени сделки - " + deals.getDate());
-			deals.date.deadline();
+			System.out.println(deals.date.deadline());
 			System.out.println("Сделка междуп продавцом " + deals.getSeller().getName() + " и покупателем "
 					+ deals.getBuyer().getName());
 			for (int i = 0; i < countProduct; i++) {
@@ -358,6 +364,7 @@ public class InputOutput {
 				System.out.println("Недостаточно средств!");
 				return;
 			}
+
 			System.out.println("\n____________________________________________");
 			System.out.printf("Итого на сумму: " + "%.2f", getSumm());
 			System.out.println();
@@ -369,6 +376,46 @@ public class InputOutput {
 					+ deals.getBuyer().getMoney() + "\n" + "Сумма денежных средств на счету у продовца"
 					+ deals.getSeller().getName() + ": " + deals.getSeller().getMoney());
 			System.out.println("--------------------------------------------");
+		}
+
+		System.out.println("Вы хотите создать файл счета?");
+		String bild = input("Y - да / N - нет ");
+		if (bild.equalsIgnoreCase("Y")) {
+			printBild();
+			System.out.println("Файл успешно создан");
+		} else {
+			return;
+		}
+
+	}
+
+	/**
+	 * Метод создания Счет-файла
+	 *
+	 */
+	public void printBild() {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(INPUT_FILE))) {
+			writer.write("\t\t\tСЧЕТ");
+			writer.newLine();
+			writer.write("Дата заключени сделки - " + deals.getDate());
+			writer.newLine();
+			writer.write(deals.date.deadline());
+			writer.newLine();
+			writer.write("Сделка междуп продавцом " + deals.getSeller().getName() + " и покупателем "
+					+ deals.getBuyer().getName());
+			writer.newLine();
+			for (int i = 0; i < countProduct; i++) {
+				writer.write("  " + prod[i].getTitle() + " : " + prod[i].getQuantity() + " x " + prod[i].getPrice()
+						+ " = " + prod[i].fullPrice());
+				writer.newLine();
+			}
+			writer.write("\n____________________________________________");
+			writer.newLine();
+			writer.write("Итого на сумму: " + getSumm());
+
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

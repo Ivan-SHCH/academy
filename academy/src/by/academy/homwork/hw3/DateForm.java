@@ -37,10 +37,10 @@ public class DateForm {
 		this.formatter = formatter;
 	}
 
-	public void deadline() {
+	public String deadline() {
 		date = LocalDate.now().plusDays(10);
-		System.out.println(
-				"Deadline - День: " + date.getDayOfMonth() + " Месяц: " + date.getMonth() + " Год: " + date.getYear());
+		String time = "Deadline - День: " + date.getDayOfMonth() + " Месяц: " + date.getMonth() + " Год: " + date.getYear();
+		return time;
 	}
 
 	public boolean getDateForm1(String str) {
